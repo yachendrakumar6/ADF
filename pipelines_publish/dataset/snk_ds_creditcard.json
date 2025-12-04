@@ -1,0 +1,47 @@
+{
+	"name": "snk_ds_creditcard",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CreditCardID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CardType",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CardNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ExpMonth",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "ExpYear",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Sales",
+			"table": "CreditCard"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

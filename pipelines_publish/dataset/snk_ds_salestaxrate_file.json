@@ -1,0 +1,72 @@
+{
+	"name": "snk_ds_salestaxrate_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "sampledata file",
+				"fileSystem": "yachendra-container-dev"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"BusinessEntityID": {
+					"type": "string"
+				},
+				"NationalIDNumber": {
+					"type": "string"
+				},
+				"LoginID": {
+					"type": "string"
+				},
+				"OrganizationNode": {
+					"type": "string"
+				},
+				"OrganizationLevel": {
+					"type": "string"
+				},
+				"JobTitle": {
+					"type": "string"
+				},
+				"BirthDate": {
+					"type": "string"
+				},
+				"MaritalStatus": {
+					"type": "string"
+				},
+				"Gender": {
+					"type": "string"
+				},
+				"HireDate": {
+					"type": "string"
+				},
+				"SalariedFlag": {
+					"type": "string"
+				},
+				"VacationHours": {
+					"type": "string"
+				},
+				"SickLeaveHours": {
+					"type": "string"
+				},
+				"CurrentFlag": {
+					"type": "string"
+				},
+				"rowguid": {
+					"type": "string"
+				},
+				"ModifiedDate": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

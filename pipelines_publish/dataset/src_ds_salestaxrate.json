@@ -1,0 +1,54 @@
+{
+	"name": "src_ds_salestaxrate",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Sales_SalesTaxRate.csv",
+				"folderPath": "data",
+				"fileSystem": "yachendra-container-dev"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SalesTaxRateID",
+				"type": "String"
+			},
+			{
+				"name": "StateProvinceID",
+				"type": "String"
+			},
+			{
+				"name": "TaxType",
+				"type": "String"
+			},
+			{
+				"name": "TaxRate",
+				"type": "String"
+			},
+			{
+				"name": "Name",
+				"type": "String"
+			},
+			{
+				"name": "rowguid",
+				"type": "String"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,9 @@
+{
+	"name": "yachendra-df-dev",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d637cbd4-20e2-42d7-a45c-1f07d5e3a243",
+		"tenantId": "1844bd3d-86dc-4762-a130-1bcbf7673a8d"
+	}
+}

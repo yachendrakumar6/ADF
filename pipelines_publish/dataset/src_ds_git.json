@@ -1,0 +1,23 @@
+{
+	"name": "src_ds_git",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_git",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "yachendrakumar6/ADF-Pipelines/refs/heads/main/Person.PersonPhone.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

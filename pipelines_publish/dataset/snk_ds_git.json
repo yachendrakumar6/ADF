@@ -1,0 +1,38 @@
+{
+	"name": "snk_ds_git",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "BusinessEntityID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PhoneNumber",
+				"type": "varchar"
+			},
+			{
+				"name": "PhoneNumberTypeID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Person",
+			"table": "PersonPhone"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

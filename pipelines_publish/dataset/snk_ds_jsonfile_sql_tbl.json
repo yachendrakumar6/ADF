@@ -1,0 +1,91 @@
+{
+	"name": "snk_ds_jsonfile_sql_tbl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "BusinessEntityID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "NationalIDNumber",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LoginID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "OrganizationNode",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "OrganizationLevel",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "JobTitle",
+				"type": "nvarchar"
+			},
+			{
+				"name": "BirthDate",
+				"type": "date"
+			},
+			{
+				"name": "MaritalStatus",
+				"type": "nchar"
+			},
+			{
+				"name": "Gender",
+				"type": "nchar"
+			},
+			{
+				"name": "HireDate",
+				"type": "date"
+			},
+			{
+				"name": "SalariedFlag",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "VacationHours",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "SickLeaveHours",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "CurrentFlag",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "rowguid",
+				"type": "uniqueidentifier"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "HumanResource",
+			"table": "Employee"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,20 @@
+{
+	"name": "snk_json_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "folder-container",
+				"fileSystem": "sample-copy"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

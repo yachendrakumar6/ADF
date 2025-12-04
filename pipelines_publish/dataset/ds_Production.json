@@ -1,0 +1,61 @@
+{
+	"name": "ds_Production",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Production",
+				"fileSystem": "sample-copy"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "BillOfMaterialsID",
+				"type": "String"
+			},
+			{
+				"name": "ProductAssemblyID",
+				"type": "String"
+			},
+			{
+				"name": "ComponentID",
+				"type": "String"
+			},
+			{
+				"name": "StartDate",
+				"type": "String"
+			},
+			{
+				"name": "EndDate",
+				"type": "String"
+			},
+			{
+				"name": "UnitMeasureCode",
+				"type": "String"
+			},
+			{
+				"name": "BOMLevel",
+				"type": "String"
+			},
+			{
+				"name": "PerAssemblyQty",
+				"type": "String"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

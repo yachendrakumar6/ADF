@@ -1,0 +1,40 @@
+{
+	"name": "pl_data_flow_select_method",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data Flow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "src_dataflow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": "ee05ab43-d0cc-4f91-b93a-60a0feba4b77"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "yachendradev"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-12-04T05:37:01Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

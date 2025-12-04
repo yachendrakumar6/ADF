@@ -1,0 +1,53 @@
+{
+	"name": "snk_ds_sales_currencyrate",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CurrencyRateID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "CurrencyRateDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "FromCurrencyCode",
+				"type": "nchar"
+			},
+			{
+				"name": "ToCurrencyCode",
+				"type": "nchar"
+			},
+			{
+				"name": "AverageRate",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "EndOfDayRate",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Sales",
+			"table": "CurrencyRate"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

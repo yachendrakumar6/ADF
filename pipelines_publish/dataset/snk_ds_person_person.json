@@ -1,0 +1,72 @@
+{
+	"name": "snk_ds_person_person",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "BusinessEntityID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "PersonType",
+				"type": "varchar"
+			},
+			{
+				"name": "NameStyle",
+				"type": "bit"
+			},
+			{
+				"name": "Title",
+				"type": "varchar"
+			},
+			{
+				"name": "FirstName",
+				"type": "varchar"
+			},
+			{
+				"name": "MiddleName",
+				"type": "varchar"
+			},
+			{
+				"name": "LastName",
+				"type": "varchar"
+			},
+			{
+				"name": "Suffix",
+				"type": "varchar"
+			},
+			{
+				"name": "EmailPromotion",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AdditionalContactInfo",
+				"type": "varchar"
+			},
+			{
+				"name": "Demographics",
+				"type": "varchar"
+			},
+			{
+				"name": "rowguid",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "Person",
+			"table": "Person"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
