@@ -13,6 +13,388 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/src_audit')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_azuresql",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/src_cust_nested_file')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_adls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "customers.json",
+						"folderPath": "sample_data",
+						"fileSystem": "dbo-container"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"customerId": {
+							"type": "string"
+						},
+						"personal": {
+							"type": "object",
+							"properties": {
+								"firstName": {
+									"type": "string"
+								},
+								"lastName": {
+									"type": "string"
+								},
+								"dob": {
+									"type": "string"
+								},
+								"gender": {
+									"type": "string"
+								}
+							}
+						},
+						"contact": {
+							"type": "object",
+							"properties": {
+								"email": {
+									"type": "string"
+								},
+								"phones": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"type": {
+												"type": "string"
+											},
+											"number": {
+												"type": "string"
+											}
+										}
+									}
+								},
+								"address": {
+									"type": "object",
+									"properties": {
+										"line1": {
+											"type": "string"
+										},
+										"line2": {
+											"type": "string"
+										},
+										"city": {
+											"type": "string"
+										},
+										"pincode": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"orders": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"orderId": {
+										"type": "string"
+									},
+									"date": {
+										"type": "string"
+									},
+									"status": {
+										"type": "string"
+									},
+									"items": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"itemId": {
+													"type": "string"
+												},
+												"name": {
+													"type": "string"
+												},
+												"price": {
+													"type": "integer"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"audit": {
+							"type": "object",
+							"properties": {
+								"createdOn": {
+									"type": "string"
+								},
+								"modifiedOn": {
+									"type": "string"
+								},
+								"createdBy": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/src_df_json')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_adls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "employees.json",
+						"folderPath": "sample_data",
+						"fileSystem": "dbo-container"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"employeeId": {
+							"type": "string"
+						},
+						"name": {
+							"type": "object",
+							"properties": {
+								"first": {
+									"type": "string"
+								},
+								"last": {
+									"type": "string"
+								}
+							}
+						},
+						"contact": {
+							"type": "object",
+							"properties": {
+								"email": {
+									"type": "string"
+								},
+								"phones": {
+									"type": "array",
+									"items": {
+										"type": "object",
+										"properties": {
+											"type": {
+												"type": "string"
+											},
+											"number": {
+												"type": "string"
+											}
+										}
+									}
+								},
+								"address": {
+									"type": "object",
+									"properties": {
+										"line1": {
+											"type": "string"
+										},
+										"line2": {
+											"type": "string"
+										},
+										"city": {
+											"type": "string"
+										},
+										"pincode": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						},
+						"skills": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"projects": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"projectId": {
+										"type": "string"
+									},
+									"name": {
+										"type": "string"
+									},
+									"role": {
+										"type": "string"
+									},
+									"technologies": {
+										"type": "array",
+										"items": {
+											"type": "string"
+										}
+									},
+									"tasks": {
+										"type": "array",
+										"items": {
+											"type": "object",
+											"properties": {
+												"taskId": {
+													"type": "string"
+												},
+												"description": {
+													"type": "string"
+												},
+												"status": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"audit": {
+							"type": "object",
+							"properties": {
+								"createdOn": {
+									"type": "string"
+								},
+								"modifiedOn": {
+									"type": "string"
+								},
+								"createdBy": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/src_ds_audit_logs')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_adls",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"file_name": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().file_name",
+							"type": "Expression"
+						},
+						"folderPath": "HumanResources",
+						"fileSystem": "sample-copy"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "DepartmentID",
+						"type": "String"
+					},
+					{
+						"name": "Name",
+						"type": "String"
+					},
+					{
+						"name": "GroupName",
+						"type": "String"
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/src_ds_countryregioncurrency')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_adls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Sales_CountryRegionCurrency.csv",
+						"folderPath": "data",
+						"fileSystem": "yachendra-container-dev"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "CountryRegionCode",
+						"type": "String"
+					},
+					{
+						"name": "CurrencyCode",
+						"type": "String"
+					},
+					{
+						"name": "ModifiedDate",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/src_ds_creditcard')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -843,513 +1225,6 @@
 				}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/src_master_data')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_adls",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"file_name": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"folderPath": "ADF Tables CSV Files",
-						"fileSystem": "sample-copy"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "DepartmentID",
-						"type": "String"
-					},
-					{
-						"name": "Name",
-						"type": "String"
-					},
-					{
-						"name": "GroupName",
-						"type": "String"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/src_nested_jsonFile_sqlTbl')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_adls",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Json",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "employees.json",
-						"folderPath": "sample_data",
-						"fileSystem": "dbo-container"
-					}
-				},
-				"schema": {
-					"type": "object",
-					"properties": {
-						"employeeId": {
-							"type": "string"
-						},
-						"name": {
-							"type": "object",
-							"properties": {
-								"first": {
-									"type": "string"
-								},
-								"last": {
-									"type": "string"
-								}
-							}
-						},
-						"contact": {
-							"type": "object",
-							"properties": {
-								"email": {
-									"type": "string"
-								},
-								"phones": {
-									"type": "array",
-									"items": {
-										"type": "object",
-										"properties": {
-											"type": {
-												"type": "string"
-											},
-											"number": {
-												"type": "string"
-											}
-										}
-									}
-								},
-								"address": {
-									"type": "object",
-									"properties": {
-										"line1": {
-											"type": "string"
-										},
-										"line2": {
-											"type": "string"
-										},
-										"city": {
-											"type": "string"
-										},
-										"pincode": {
-											"type": "string"
-										}
-									}
-								}
-							}
-						},
-						"skills": {
-							"type": "array",
-							"items": {
-								"type": "string"
-							}
-						},
-						"projects": {
-							"type": "array",
-							"items": {
-								"type": "object",
-								"properties": {
-									"projectId": {
-										"type": "string"
-									},
-									"name": {
-										"type": "string"
-									},
-									"role": {
-										"type": "string"
-									},
-									"technologies": {
-										"type": "array",
-										"items": {
-											"type": "string"
-										}
-									},
-									"tasks": {
-										"type": "array",
-										"items": {
-											"type": "object",
-											"properties": {
-												"taskId": {
-													"type": "string"
-												},
-												"description": {
-													"type": "string"
-												},
-												"status": {
-													"type": "string"
-												}
-											}
-										}
-									}
-								}
-							}
-						},
-						"audit": {
-							"type": "object",
-							"properties": {
-								"createdOn": {
-									"type": "string"
-								},
-								"modifiedOn": {
-									"type": "string"
-								},
-								"createdBy": {
-									"type": "string"
-								}
-							}
-						}
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/src_sales')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "lnk_adls",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"file_name": {
-						"type": "string"
-					}
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": {
-							"value": "@dataset().file_name",
-							"type": "Expression"
-						},
-						"folderPath": "Sales",
-						"fileSystem": "sample-copy"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "CountryRegionCode",
-						"type": "String"
-					},
-					{
-						"name": "CurrencyCode",
-						"type": "String"
-					},
-					{
-						"name": "ModifiedDate",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_HR')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Get Metadata HR",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "ds_HR",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"fieldList": [
-								"childItems"
-							],
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"enablePartitionDiscovery": false
-							},
-							"formatSettings": {
-								"type": "DelimitedTextReadSettings"
-							}
-						}
-					},
-					{
-						"name": "ForEach HR",
-						"type": "ForEach",
-						"dependsOn": [
-							{
-								"activity": "Get Metadata HR",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Get Metadata HR').output.childItems",
-								"type": "Expression"
-							},
-							"activities": [
-								{
-									"name": "Copy Data HR",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "0.12:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "DelimitedTextSource",
-											"storeSettings": {
-												"type": "AzureBlobFSReadSettings",
-												"recursive": true,
-												"enablePartitionDiscovery": false
-											},
-											"formatSettings": {
-												"type": "DelimitedTextReadSettings"
-											}
-										},
-										"sink": {
-											"type": "AzureSqlSink",
-											"writeBehavior": "insert",
-											"sqlWriterUseTableLock": false
-										},
-										"enableStaging": false,
-										"translator": {
-											"type": "TabularTranslator",
-											"typeConversion": true,
-											"typeConversionSettings": {
-												"allowDataTruncation": true,
-												"treatBooleanAsNumber": false
-											}
-										}
-									},
-									"inputs": [
-										{
-											"referenceName": "src_HR",
-											"type": "DatasetReference",
-											"parameters": {
-												"file_name": {
-													"value": "@item().name",
-													"type": "Expression"
-												}
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "snk_HR",
-											"type": "DatasetReference",
-											"parameters": {
-												"table_name": {
-													"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[1]\n",
-													"type": "Expression"
-												}
-											}
-										}
-									]
-								}
-							]
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"folder": {
-					"name": "AdventureWorks"
-				},
-				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/pl_Master')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Get Metadata Master",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "ds_master",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"fieldList": [
-								"childItems"
-							],
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"enablePartitionDiscovery": false
-							},
-							"formatSettings": {
-								"type": "DelimitedTextReadSettings"
-							}
-						}
-					},
-					{
-						"name": "ForEach Master",
-						"type": "ForEach",
-						"dependsOn": [
-							{
-								"activity": "Get Metadata Master",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('Get Metadata Master').output.childItems",
-								"type": "Expression"
-							},
-							"activities": [
-								{
-									"name": "Copy Data Master",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "0.12:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "DelimitedTextSource",
-											"storeSettings": {
-												"type": "AzureBlobFSReadSettings",
-												"fileListPath": "sample-copy/ADF Tables CSV Files",
-												"enablePartitionDiscovery": false
-											},
-											"formatSettings": {
-												"type": "DelimitedTextReadSettings"
-											}
-										},
-										"sink": {
-											"type": "AzureSqlSink",
-											"writeBehavior": "insert",
-											"sqlWriterUseTableLock": false
-										},
-										"enableStaging": false,
-										"translator": {
-											"type": "TabularTranslator",
-											"typeConversion": true,
-											"typeConversionSettings": {
-												"allowDataTruncation": true,
-												"treatBooleanAsNumber": false
-											}
-										}
-									},
-									"inputs": [
-										{
-											"referenceName": "src_master_data",
-											"type": "DatasetReference",
-											"parameters": {
-												"file_name": {
-													"value": "@item().name",
-													"type": "Expression"
-												}
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "snk_master_data",
-											"type": "DatasetReference",
-											"parameters": {
-												"schema": {
-													"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]",
-													"type": "Expression"
-												},
-												"table_name": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]"
-											}
-										}
-									]
-								}
-							]
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"folder": {
-					"name": "AdventureWorks"
-				},
-				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/src_master_data')]"
-			]
 		}
 	]
 }
