@@ -90,7 +90,7 @@
 									"referenceName": "src_lookup",
 									"type": "DatasetReference",
 									"parameters": {
-										"table_name": {
+										"table_schema": {
 											"value": "@item().table_name",
 											"type": "Expression"
 										}
