@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": "ADF Tables CSV Files",
-				"fileSystem": "sample-copy"
+				"fileSystem": "data-container"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

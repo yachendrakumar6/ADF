@@ -67,7 +67,7 @@
 									"type": "DelimitedTextSource",
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
-										"fileListPath": "sample-copy/ADF Tables CSV Files",
+										"fileListPath": "data-container/ADF Tables CSV Files",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
