@@ -2081,7 +2081,7 @@
 											"formatSettings": {
 												"type": "DelimitedTextWriteSettings",
 												"quoteAllText": true,
-												"fileExtension": ".txt"
+												"fileExtension": ".csv"
 											}
 										},
 										"enableStaging": false,
@@ -2116,7 +2116,7 @@
 											"type": "DatasetReference",
 											"parameters": {
 												"file_name": {
-													"value": "@concat(item().table_schema,'_',item().table_name,'.csv')",
+													"value": "@concat(item().TABLE_SCHEMA,'_',item().TABLE_NAME,'.csv')",
 													"type": "Expression"
 												}
 											}
