@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA = 'HumanResources' AND TABLE_TYPE = 'BASE TABLE'",
+						"sqlReaderQuery": "SELECT TABLE_SCHEMA,TABLE_NAME FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_TYPE = 'BASE TABLE'",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -31,6 +31,8 @@
 			{
 				"name": "ForEach1",
 				"type": "ForEach",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Lookup",
