@@ -5,6 +5,14 @@
 			"referenceName": "lnk_adls",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"table_schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
