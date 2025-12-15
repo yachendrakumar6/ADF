@@ -242,7 +242,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA = 'HumanResources' AND TABLE_TYPE = 'BASE TABLE'",
+								"sqlReaderQuery": "SELECT TABLE_SCHEMA,TABLE_NAME FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_TYPE = 'BASE TABLE'",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
@@ -316,6 +316,10 @@
 											"referenceName": "src_lookup",
 											"type": "DatasetReference",
 											"parameters": {
+												"table_schema": {
+													"value": "@item().table_schema",
+													"type": "Expression"
+												},
 												"table_name": {
 													"value": "@item().table_name",
 													"type": "Expression"
@@ -327,7 +331,12 @@
 										{
 											"referenceName": "snk_lookup",
 											"type": "DatasetReference",
-											"parameters": {}
+											"parameters": {
+												"file_name": {
+													"value": "@concat(item().table_schema,'_',item().table_name,'.csv')",
+													"type": "Expression"
+												}
+											}
 										}
 									]
 								}

@@ -2013,7 +2013,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA = 'HumanResources' AND TABLE_TYPE = 'BASE TABLE'",
+								"sqlReaderQuery": "SELECT TABLE_SCHEMA,TABLE_NAME FROM INFORMATION_SCHEMA.TABLES\nWHERE TABLE_TYPE = 'BASE TABLE'",
 								"queryTimeout": "02:00:00",
 								"partitionOption": "None"
 							},
@@ -2087,6 +2087,10 @@
 											"referenceName": "src_lookup",
 											"type": "DatasetReference",
 											"parameters": {
+												"table_schema": {
+													"value": "@item().table_schema",
+													"type": "Expression"
+												},
 												"table_name": {
 													"value": "@item().table_name",
 													"type": "Expression"
@@ -2098,7 +2102,12 @@
 										{
 											"referenceName": "snk_lookup",
 											"type": "DatasetReference",
-											"parameters": {}
+											"parameters": {
+												"file_name": {
+													"value": "@concat(item().table_schema,'_',item().table_name,'.csv')",
+													"type": "Expression"
+												}
+											}
 										}
 									]
 								}
@@ -4282,13 +4291,18 @@
 					"referenceName": "lnk_adls",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"file_name": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "HumanResource",
-						"fileSystem": "dbo-container"
+						"folderPath": "Table-File",
+						"fileSystem": "data-container"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -5968,6 +5982,9 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
+					"table_schema": {
+						"type": "string"
+					},
 					"table_name": {
 						"type": "string"
 					}
@@ -5976,7 +5993,10 @@
 				"type": "AzureSqlTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "HumanResources",
+					"schema": {
+						"value": "@dataset().table_schema",
+						"type": "Expression"
+					},
 					"table": {
 						"value": "@dataset().table_name",
 						"type": "Expression"
