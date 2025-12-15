@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "yachendra-df"
+		},
+		"lnk_adls_accountKey": {
+			"value": ""
+		},
+		"lnk_azuresql_password": {
+			"value": ""
+		},
+		"lnk_git_password": {
+			"value": ""
+		},
+		"lnk_adls_properties_typeProperties_url": {
+			"value": "https://yachendradatalake.dfs.core.windows.net/"
+		},
+		"lnk_azuresql_properties_typeProperties_server": {
+			"value": "yachendraserver.database.windows.net"
+		},
+		"lnk_azuresql_properties_typeProperties_database": {
+			"value": "db_admin"
+		},
+		"lnk_azuresql_properties_typeProperties_userName": {
+			"value": "db_admin"
+		},
+		"lnk_git_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"lnk_git_properties_typeProperties_userName": {
+			"value": "yachendrakumar6"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
