@@ -18,10 +18,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@concat(dataset().table_schema,'_',dataset().table_name,'.csv')",
-					"type": "Expression"
-				},
 				"folderPath": "Table-File",
 				"fileSystem": "data-container"
 			},
