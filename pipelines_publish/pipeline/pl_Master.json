@@ -107,7 +107,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"schema": {
-											"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'_')), '_')[0]",
+											"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]",
 											"type": "Expression"
 										},
 										"table_name": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]"
