@@ -543,6 +543,9 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
+					"table_schema": {
+						"type": "string"
+					},
 					"table_name": {
 						"type": "string"
 					}
@@ -551,7 +554,10 @@
 				"type": "AzureSqlTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "Person",
+					"schema": {
+						"value": "@dataset().table_schema",
+						"type": "Expression"
+					},
 					"table": {
 						"value": "@dataset().table_name",
 						"type": "Expression"

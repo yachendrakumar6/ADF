@@ -456,8 +456,13 @@
 											"type": "DelimitedTextSource",
 											"storeSettings": {
 												"type": "AzureBlobFSReadSettings",
-												"fileListPath": "data-container/ADF Tables CSV Files",
-												"enablePartitionDiscovery": false
+												"recursive": true,
+												"wildcardFolderPath": "ADF Tables CSV Files",
+												"wildcardFileName": {
+													"value": "@item().name",
+													"type": "Expression"
+												},
+												"enablePartitionDiscovery": true
 											},
 											"formatSettings": {
 												"type": "DelimitedTextReadSettings"
@@ -499,7 +504,10 @@
 													"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]",
 													"type": "Expression"
 												},
-												"table_name": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]"
+												"table_name": {
+													"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[1]",
+													"type": "Expression"
+												}
 											}
 										}
 									]
@@ -634,8 +642,12 @@
 											"referenceName": "snk_Person",
 											"type": "DatasetReference",
 											"parameters": {
+												"table_schema": {
+													"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]",
+													"type": "Expression"
+												},
 												"table_name": {
-													"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '.')[1]",
+													"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[1]",
 													"type": "Expression"
 												}
 											}
@@ -3242,6 +3254,9 @@
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
+					"table_schema": {
+						"type": "string"
+					},
 					"table_name": {
 						"type": "string"
 					}
@@ -3250,7 +3265,10 @@
 				"type": "AzureSqlTable",
 				"schema": [],
 				"typeProperties": {
-					"schema": "Person",
+					"schema": {
+						"value": "@dataset().table_schema",
+						"type": "Expression"
+					},
 					"table": {
 						"value": "@dataset().table_name",
 						"type": "Expression"
