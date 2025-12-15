@@ -110,7 +110,10 @@
 											"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]",
 											"type": "Expression"
 										},
-										"table_name": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]"
+										"table_name": {
+											"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[1]",
+											"type": "Expression"
+										}
 									}
 								}
 							]
