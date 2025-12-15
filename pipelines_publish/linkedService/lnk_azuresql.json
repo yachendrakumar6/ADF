@@ -5,13 +5,13 @@
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"server": "yachendraserverdev.database.windows.net",
-			"database": "yachendrakumar_db_dev",
+			"server": "yachendraserver.database.windows.net",
+			"database": "db_admin",
 			"encrypt": "mandatory",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
 			"userName": "db_admin",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEE2MjQ0MTQ1LUVBQzUtNEU1OS1BRjBCLTZFQ0EyQkYwMjI5OV80OWY4N2RjMC1hOWI1LTQzZGQtOTcyNS05MTZmY2ZiMWNjNzMiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEQzMkYyREJGLTUwRUMtNEE3Ni1BRUIyLTAwQzNCMENDMTMyN183ZTNlNWRkNi1lMjE2LTQyMTYtOGE5Ny1hNmRlOTdkOTE4YzYiDQp9"
 		}
 	}
 }
