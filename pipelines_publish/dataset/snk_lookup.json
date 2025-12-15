@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "HumanResource",
-				"fileSystem": "dbo-container"
+				"folderPath": "Table-File",
+				"fileSystem": "data-container"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
