@@ -78,7 +78,13 @@
 							"inputs": [
 								{
 									"referenceName": "src_ds_audit1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"file_name": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
