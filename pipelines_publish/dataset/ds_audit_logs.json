@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "HumanResources",
-				"fileSystem": "sample-copy"
+				"folderPath": "ADF Tables CSV Files",
+				"fileSystem": "data-container"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
