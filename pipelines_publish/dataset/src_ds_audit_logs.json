@@ -18,9 +18,7 @@
 				"fileName": {
 					"value": "@dataset().file_name",
 					"type": "Expression"
-				},
-				"folderPath": "HumanResources",
-				"fileSystem": "sample-copy"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
