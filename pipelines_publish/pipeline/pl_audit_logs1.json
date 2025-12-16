@@ -103,7 +103,13 @@
 							"outputs": [
 								{
 									"referenceName": "snk_ds_audit1",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"table_schema": {
+											"value": "@split(substring(item().name, 0, lastIndexOf(item().name,'.')), '_')[0]",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
