@@ -18,7 +18,9 @@
 				"fileName": {
 					"value": "@dataset().file_name",
 					"type": "Expression"
-				}
+				},
+				"folderPath": "ADF Tables CSV Files",
+				"fileSystem": "data-container"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
