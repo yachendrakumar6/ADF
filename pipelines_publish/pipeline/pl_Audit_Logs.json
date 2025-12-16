@@ -35,8 +35,6 @@
 			{
 				"name": "ForEach Audit",
 				"type": "ForEach",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Get Metadata",
