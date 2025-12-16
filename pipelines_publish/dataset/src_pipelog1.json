@@ -1,5 +1,5 @@
 {
-	"name": "pipelog1",
+	"name": "src_pipelog1",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "lnk_azuresql",
@@ -102,10 +102,6 @@
 				"name": "CopyActivity_transferDuration_in_secs",
 				"type": "nvarchar"
 			}
-		],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": "pipeline_log"
-		}
+		]
 	}
 }

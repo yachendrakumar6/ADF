@@ -163,7 +163,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "pipelog1",
+									"referenceName": "src_pipelog1",
 									"type": "DatasetReference"
 								}
 							],
