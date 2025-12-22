@@ -1,0 +1,83 @@
+{
+	"name": "src_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "src_df_json",
+						"type": "DatasetReference"
+					},
+					"name": "SrcJsonFIle"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "snk_df_json",
+						"type": "DatasetReference"
+					},
+					"name": "SNKJSONFILE"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SELECTFILE"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          employeeId as string,",
+				"          name as (first as string, last as string),",
+				"          contact as (email as string, phones as (type as string, number as string)[], address as (line1 as string, line2 as string, city as string, pincode as string)),",
+				"          skills as string[],",
+				"          projects as (projectId as string, name as string, role as string, technologies as string[], tasks as (taskId as string, description as string, status as string)[])[],",
+				"          audit as (createdOn as string, modifiedOn as string, createdBy as string)",
+				"     ),",
+				"     allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     documentForm: 'arrayOfDocuments') ~> SrcJsonFIle",
+				"SrcJsonFIle select(mapColumn(",
+				"          EmployeeId = employeeId,",
+				"          FirstName = name.first,",
+				"          LastName = name.last,",
+				"          Email = contact.email,",
+				"          AddressLine1 = contact.address.line1,",
+				"          AddressLine2 = contact.address.line2,",
+				"          City = contact.address.city,",
+				"          Pincode = contact.address.pincode,",
+				"          CreatedOn = audit.createdOn,",
+				"          ModifiedOn = audit.modifiedOn,",
+				"          CreatedBy = audit.createdBy",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SELECTFILE",
+				"SELECTFILE sink(allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     input(",
+				"          EmployeeId as string,",
+				"          FirstName as string,",
+				"          LastName as string,",
+				"          Email as string,",
+				"          AddressLine1 as string,",
+				"          AddressLine2 as string,",
+				"          City as string,",
+				"          Pincode as string,",
+				"          CreatedOn as timestamp,",
+				"          ModifiedOn as timestamp,",
+				"          CreatedBy as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> SNKJSONFILE"
+			]
+		}
+	}
+}

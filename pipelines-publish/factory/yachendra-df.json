@@ -1,0 +1,14 @@
+{
+	"name": "yachendra-df",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b0e62355-a471-42f9-9344-8d97b9e8c4de",
+		"tenantId": "638fd545-83d5-478f-815f-61a70f9ca703"
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"name": "snk_ds_countryregioncurrency",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CountryRegionCode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CurrencyCode",
+				"type": "nchar"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Sales",
+			"table": "CountryRegionCurrency"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

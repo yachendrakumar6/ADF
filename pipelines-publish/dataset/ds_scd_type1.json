@@ -1,0 +1,50 @@
+{
+	"name": "ds_scd_type1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "dbo_employee.csv",
+				"folderPath": "dbo",
+				"fileSystem": "data-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "empid",
+				"type": "String"
+			},
+			{
+				"name": "empname",
+				"type": "String"
+			},
+			{
+				"name": "empdept",
+				"type": "String"
+			},
+			{
+				"name": "empqual",
+				"type": "String"
+			},
+			{
+				"name": "empjoindate",
+				"type": "String"
+			},
+			{
+				"name": "empsal",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

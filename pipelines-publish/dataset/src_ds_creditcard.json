@@ -1,0 +1,50 @@
+{
+	"name": "src_ds_creditcard",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Sales_CreditCard.csv",
+				"folderPath": "data",
+				"fileSystem": "yachendra-container-dev"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "CreditCardID",
+				"type": "String"
+			},
+			{
+				"name": "CardType",
+				"type": "String"
+			},
+			{
+				"name": "CardNumber",
+				"type": "String"
+			},
+			{
+				"name": "ExpMonth",
+				"type": "String"
+			},
+			{
+				"name": "ExpYear",
+				"type": "String"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

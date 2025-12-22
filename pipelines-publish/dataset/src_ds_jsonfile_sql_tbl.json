@@ -1,0 +1,46 @@
+{
+	"name": "src_ds_jsonfile_sql_tbl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "HumanResources_Employee.json",
+				"folderPath": "sampledata file",
+				"fileSystem": "yachendra-container-dev"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"SalesTaxRateID": {
+					"type": "integer"
+				},
+				"StateProvinceID": {
+					"type": "integer"
+				},
+				"TaxType": {
+					"type": "integer"
+				},
+				"TaxRate": {
+					"type": "number"
+				},
+				"Name": {
+					"type": "string"
+				},
+				"rowguid": {
+					"type": "string"
+				},
+				"ModifiedDate": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

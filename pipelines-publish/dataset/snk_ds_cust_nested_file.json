@@ -1,0 +1,76 @@
+{
+	"name": "snk_ds_cust_nested_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "CustomerId",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FirstName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "LastName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "DOB",
+				"type": "date"
+			},
+			{
+				"name": "Gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "PhonePrimary",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AddressLine1",
+				"type": "nvarchar"
+			},
+			{
+				"name": "AddressLine2",
+				"type": "nvarchar"
+			},
+			{
+				"name": "City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Pincode",
+				"type": "nvarchar"
+			},
+			{
+				"name": "CreatedOn",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "ModifiedOn",
+				"type": "datetime2",
+				"scale": 7
+			},
+			{
+				"name": "CreatedBy",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Customers"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

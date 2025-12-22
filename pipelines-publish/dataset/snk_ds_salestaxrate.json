@@ -1,0 +1,53 @@
+{
+	"name": "snk_ds_salestaxrate",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lnk_azuresql",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "SalesTaxRateID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "StateProvinceID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TaxType",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TaxRate",
+				"type": "decimal",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "Name",
+				"type": "varchar"
+			},
+			{
+				"name": "rowguid",
+				"type": "varchar"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "Sales",
+			"table": "SalesTaxRate"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
