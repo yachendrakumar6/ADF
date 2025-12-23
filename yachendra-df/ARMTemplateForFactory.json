@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "yachendra-df"
 		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
 		"lnk_adls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'lnk_adls'"
@@ -18,6 +22,18 @@
 		"lnk_git_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'lnk_git'"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "MODIBOINA"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sample_db"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "MODIBOINA\\yache"
 		},
 		"lnk_adls_properties_typeProperties_url": {
 			"type": "string",
@@ -236,7 +252,8 @@
 				"folder": {
 					"name": "AdventureWorks"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-12-16T07:32:57Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_audit_logs')]",
@@ -376,7 +393,7 @@
 					"name": "AdventureWorks"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_HR')]",
@@ -523,7 +540,7 @@
 					"name": "AdventureWorks"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T16:17:42Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_master')]",
@@ -665,7 +682,7 @@
 					"name": "AdventureWorks"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:01Z"
+				"lastPublishTime": "2025-12-15T16:17:43Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_Person')]",
@@ -803,7 +820,7 @@
 					"name": "AdventureWorks"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_Production')]",
@@ -941,7 +958,7 @@
 					"name": "AdventureWorks"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_Purchasing')]",
@@ -1079,7 +1096,7 @@
 					"name": "AdventureWorks"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_sales')]",
@@ -1279,7 +1296,8 @@
 				"folder": {
 					"name": "AdventureWorks"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-12-16T07:32:57Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_aduit1')]",
@@ -1357,7 +1375,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_countryregioncurrency')]",
@@ -1432,7 +1450,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_creditcard')]",
@@ -1507,7 +1525,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_currency')]",
@@ -1705,7 +1723,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_cust_nested_file')]",
@@ -1780,7 +1798,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_customers')]",
@@ -1853,7 +1871,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_customers_avaro')]",
@@ -1907,7 +1925,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:01Z"
+				"lastPublishTime": "2025-12-15T12:47:30Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/src_dataflow')]"
@@ -1981,7 +1999,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_sales_currencyrate')]",
@@ -2056,7 +2074,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_file_json')]",
@@ -2132,7 +2150,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_git')]",
@@ -2199,7 +2217,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_jsonfile_sql_tbl')]",
@@ -2335,7 +2353,8 @@
 				"folder": {
 					"name": "AdventureWorks"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-12-15T16:32:08Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_lookup')]",
@@ -2473,7 +2492,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_getmetadata')]",
@@ -2646,7 +2665,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_nested_jsonFile_sqlTbl')]",
@@ -2721,7 +2740,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_person_person')]",
@@ -2940,7 +2959,8 @@
 				"folder": {
 					"name": "AdventureWorks"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-12-16T10:34:42Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_recon')]",
@@ -3170,7 +3190,8 @@
 				"folder": {
 					"name": "AdventureWorks"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-12-17T14:09:27Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_reconciliation')]",
@@ -3249,7 +3270,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_salesorderdetail')]",
@@ -3324,7 +3345,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_salestaxrate')]",
@@ -3391,7 +3412,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_salestaxrate_file')]",
@@ -3441,10 +3462,62 @@
 				"folder": {
 					"name": "AdventureWorks"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-12-19T06:26:22Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/dataflows/df_scd_type1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_scd_type2')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Data flow",
+						"type": "ExecuteDataFlow",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"dataflow": {
+								"referenceName": "dataflow",
+								"type": "DataFlowReference",
+								"parameters": {},
+								"datasetParameters": {
+									"source": {},
+									"source1": {},
+									"sink1": {},
+									"sink2": {}
+								}
+							},
+							"staging": {},
+							"compute": {
+								"coreCount": 8,
+								"computeType": "General"
+							},
+							"traceLevel": "Fine"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"folder": {
+					"name": "AdventureWorks"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/dataflows/dataflow')]"
 			]
 		},
 		{
@@ -3515,7 +3588,7 @@
 					"name": "yachendradev"
 				},
 				"annotations": [],
-				"lastPublishTime": "2025-12-04T05:37:00Z"
+				"lastPublishTime": "2025-12-15T12:47:29Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/src_ds_tbl_file')]",
@@ -4208,6 +4281,60 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/scd_type2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_adls",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "dbo_employee.csv",
+						"folderPath": "dbo",
+						"fileSystem": "data-container"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "empid",
+						"type": "String"
+					},
+					{
+						"name": "empname",
+						"type": "String"
+					},
+					{
+						"name": "empdept",
+						"type": "String"
+					},
+					{
+						"name": "empqual",
+						"type": "String"
+					},
+					{
+						"name": "empjoindate",
+						"type": "String"
+					},
+					{
+						"name": "empsal",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_adls')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/sink_pipelog1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -4317,6 +4444,104 @@
 				"typeProperties": {
 					"schema": "dbo",
 					"table": "pipeline_log"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_azuresql')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/snk1_scd_type2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_azuresql",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "empid",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "empname",
+						"type": "varchar"
+					},
+					{
+						"name": "empdept",
+						"type": "varchar"
+					},
+					{
+						"name": "empqual",
+						"type": "varchar"
+					},
+					{
+						"name": "empjoindate",
+						"type": "date"
+					},
+					{
+						"name": "empsal",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "employee"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_azuresql')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/snk2_scd_type2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_azuresql",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "empid",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "empname",
+						"type": "varchar"
+					},
+					{
+						"name": "empdept",
+						"type": "varchar"
+					},
+					{
+						"name": "empqual",
+						"type": "varchar"
+					},
+					{
+						"name": "empjoindate",
+						"type": "date"
+					},
+					{
+						"name": "empsal",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "employee"
 				}
 			},
 			"dependsOn": [
@@ -5902,6 +6127,55 @@
 						"value": "@dataset().table_name",
 						"type": "Expression"
 					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/lnk_azuresql')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/source2_scd_type2')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "lnk_azuresql",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [
+					{
+						"name": "empid",
+						"type": "int",
+						"precision": 10
+					},
+					{
+						"name": "empname",
+						"type": "varchar"
+					},
+					{
+						"name": "empdept",
+						"type": "varchar"
+					},
+					{
+						"name": "empqual",
+						"type": "varchar"
+					},
+					{
+						"name": "empjoindate",
+						"type": "date"
+					},
+					{
+						"name": "empsal",
+						"type": "decimal",
+						"precision": 10,
+						"scale": 2
+					}
+				],
+				"typeProperties": {
+					"schema": "dbo",
+					"table": "employee"
 				}
 			},
 			"dependsOn": [
@@ -8018,6 +8292,34 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/SqlServer1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"server": "[parameters('SqlServer1_properties_typeProperties_server')]",
+					"database": "[parameters('SqlServer1_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": false,
+					"authenticationType": "Windows",
+					"userName": "[parameters('SqlServer1_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('SqlServer1_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "self-hosted",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/self-hosted')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/lnk_adls')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -8075,6 +8377,162 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/self-hosted')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dataflow')]",
+			"type": "Microsoft.DataFactory/factories/dataflows",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "scd_type2",
+								"type": "DatasetReference"
+							},
+							"name": "source"
+						},
+						{
+							"dataset": {
+								"referenceName": "source2_scd_type2",
+								"type": "DatasetReference"
+							},
+							"name": "source1"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "snk1_scd_type2",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						},
+						{
+							"dataset": {
+								"referenceName": "snk2_scd_type2",
+								"type": "DatasetReference"
+							},
+							"name": "sink2"
+						}
+					],
+					"transformations": [
+						{
+							"name": "DerivedColumn"
+						},
+						{
+							"name": "exists1"
+						},
+						{
+							"name": "derivedColumn1"
+						},
+						{
+							"name": "exists2"
+						},
+						{
+							"name": "alterRow1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          empid as integer,",
+						"          empname as string,",
+						"          empdept as string,",
+						"          empqual as string,",
+						"          empjoindate as date,",
+						"          empsal as double",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> source",
+						"source(output(",
+						"          empid as integer,",
+						"          empname as string,",
+						"          empdept as string,",
+						"          empqual as string,",
+						"          empjoindate as date,",
+						"          empsal as decimal(10,2)",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     isolationLevel: 'READ_UNCOMMITTED',",
+						"     format: 'table') ~> source1",
+						"source derive(hash_key1 = md5(empdept,empsal),",
+						"          status = 1==1) ~> DerivedColumn",
+						"DerivedColumn, derivedColumn1 exists(source@empid == source1@empid,",
+						"     negate:true,",
+						"     broadcast: 'auto')~> exists1",
+						"source1 derive(hash_key2 = md5(empdept,empsal),",
+						"          status = 1==1) ~> derivedColumn1",
+						"derivedColumn1, exists1 exists(source@empid == source1@empid && hash_key1 == hash_key2,",
+						"     negate:true,",
+						"     broadcast: 'auto')~> exists2",
+						"exists2 alterRow(upsertIf(1==1)) ~> alterRow1",
+						"exists1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          empid as integer,",
+						"          empname as string,",
+						"          empdept as string,",
+						"          empqual as string,",
+						"          empjoindate as date,",
+						"          empsal as decimal(10,2)",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:true,",
+						"     updateable:false,",
+						"     upsertable:false,",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError',",
+						"     mapColumn(",
+						"          empid,",
+						"          empname,",
+						"          empdept,",
+						"          empqual,",
+						"          empjoindate,",
+						"          empsal",
+						"     )) ~> sink1",
+						"alterRow1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     input(",
+						"          empid as integer,",
+						"          empname as string,",
+						"          empdept as string,",
+						"          empqual as string,",
+						"          empjoindate as date,",
+						"          empsal as decimal(10,2)",
+						"     ),",
+						"     deletable:false,",
+						"     insertable:false,",
+						"     updateable:true,",
+						"     upsertable:false,",
+						"     keys:['empid'],",
+						"     format: 'table',",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true,",
+						"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/scd_type2')]",
+				"[concat(variables('factoryId'), '/datasets/source2_scd_type2')]",
+				"[concat(variables('factoryId'), '/datasets/snk1_scd_type2')]",
+				"[concat(variables('factoryId'), '/datasets/snk2_scd_type2')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/df_scd_type1')]",

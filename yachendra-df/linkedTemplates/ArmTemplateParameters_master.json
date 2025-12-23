@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "yachendra-df"
 		},
+		"SqlServer1_password": {
+			"value": ""
+		},
 		"lnk_adls_accountKey": {
 			"value": ""
 		},
@@ -13,6 +16,15 @@
 		},
 		"lnk_git_password": {
 			"value": ""
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "MODIBOINA"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "sample_db"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "MODIBOINA\\yache"
 		},
 		"lnk_adls_properties_typeProperties_url": {
 			"value": "https://yachendradatalake.dfs.core.windows.net/"
