@@ -1,0 +1,138 @@
+{
+	"name": "dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "scd_type2",
+						"type": "DatasetReference"
+					},
+					"name": "source"
+				},
+				{
+					"dataset": {
+						"referenceName": "source2_scd_type2",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "snk1_scd_type2",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "snk2_scd_type2",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivedColumn"
+				},
+				{
+					"name": "exists1"
+				},
+				{
+					"name": "derivedColumn1"
+				},
+				{
+					"name": "exists2"
+				},
+				{
+					"name": "alterRow1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          empid as integer,",
+				"          empname as string,",
+				"          empdept as string,",
+				"          empqual as string,",
+				"          empjoindate as date,",
+				"          empsal as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source",
+				"source(output(",
+				"          empid as integer,",
+				"          empname as string,",
+				"          empdept as string,",
+				"          empqual as string,",
+				"          empjoindate as date,",
+				"          empsal as decimal(10,2)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source derive(hash_key1 = md5(empdept,empsal),",
+				"          status = 1==1) ~> DerivedColumn",
+				"DerivedColumn, derivedColumn1 exists(source@empid == source1@empid ,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
+				"source1 derive(hash_key2 = md5(empdept,empsal),",
+				"          status = 1==1) ~> derivedColumn1",
+				"derivedColumn1, exists1 exists(source@empid == source1@empid && hash_key1 == hash_key2,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists2",
+				"exists2 alterRow(upsertIf(1==1)) ~> alterRow1",
+				"exists1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          empid as integer,",
+				"          empname as string,",
+				"          empdept as string,",
+				"          empqual as string,",
+				"          empjoindate as date,",
+				"          empsal as decimal(10,2)",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          empid,",
+				"          empname,",
+				"          empdept,",
+				"          empqual,",
+				"          empjoindate,",
+				"          empsal",
+				"     )) ~> sink1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          empid as integer,",
+				"          empname as string,",
+				"          empdept as string,",
+				"          empqual as string,",
+				"          empjoindate as date,",
+				"          empsal as decimal(10,2)",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:true,",
+				"     upsertable:false,",
+				"     keys:['empid'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+			]
+		}
+	}
+}
